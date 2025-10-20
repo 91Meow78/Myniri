@@ -287,6 +287,8 @@ spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
 spawn-sh-at-startup "~/.config/niri/wallpaper.sh"
 spawn-sh-at-startup "swayidle timeout 600 'swaylock -i ~/Pictures/wallpapers/wallhaven-1kxp9g.jpg' timeout 900 'niri msg action power-off-monitors' "
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "mako"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
@@ -401,6 +403,8 @@ binds {
     // but you need to manually put each argument in separate "" quotes.
     F6 allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     F5 allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    Mod+F5 allow-when-locked=true { spawn-sh "brightnessctl set 1- --device=platform::kbd_backlight"; }
+    Mod+F6 allow-when-locked=true { spawn-sh "brightnessctl set +1 --device=platform::kbd_backlight"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
