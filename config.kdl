@@ -104,6 +104,9 @@ output "eDP-1" {
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
     position x=1280 y=0
+
+    backdrop-color "#262626"
+
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -140,7 +143,7 @@ layout {
     // preset-window-heights { }
 
     // You can change the default width of the new windows.
-    default-column-width { proportion 0.5; }
+    default-column-width { proportion 0.77777; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
     // default-column-width {}
 
@@ -277,6 +280,11 @@ cursor {
     xcursor-size 30
 }
 
+overview {
+    zoom 0.7
+}
+
+
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
@@ -294,9 +302,15 @@ spawn-at-startup "mako"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
+// Disable the hot corners.
+gestures {
+    hot-corners {
+        off
+    }
+}
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
@@ -401,8 +415,8 @@ binds {
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
     // but you need to manually put each argument in separate "" quotes.
-    F6 allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    F5 allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    Alt+F6 allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    Alt+F5 allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
     Mod+F5 allow-when-locked=true { spawn-sh "brightnessctl set 1- --device=platform::kbd_backlight"; }
     Mod+F6 allow-when-locked=true { spawn-sh "brightnessctl set +1 --device=platform::kbd_backlight"; }
 
