@@ -165,6 +165,7 @@ window-rule {
 
 window-rule {
   match app-id="waypaper" title="Waypaper"
+  match app-id="io.missioncenter.MissionCenter" title="Mission Center"
   match app-id="nm-connection-editor" title="Network Connections"
   match app-id="org.pulseaudio.pavucontrol" title="Volume Control"
   match app-id="blueman-manager" title="Bluetooth Devices"
@@ -174,15 +175,16 @@ window-rule {
 window-rule {
     
     match app-id="org.pulseaudio.pavucontrol" title="Volume Control"
+    match app-id="blueman-manager" title="Bluetooth Devices"
     default-column-width { fixed 600; }
     default-window-height { fixed 600; }
 }
 
 window-rule {
     
-    match app-id="blueman-manager" title="Bluetooth Devices"
-    default-column-width { fixed 600; }
-    default-window-height { fixed 600; }
+    match app-id="io.missioncenter.MissionCenter" title="Mission Center"
+    default-column-width { fixed 1060; }
+    default-window-height { fixed 750; }
 }
 /-window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
