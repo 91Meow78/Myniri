@@ -52,7 +52,7 @@ output "eDP-1" {
     position x=1280 y=0
 
     backdrop-color "#262626"
-
+    
 }
 
 layout {
@@ -85,15 +85,15 @@ layout {
         // off
 
         width 2
-        active-color "#89b4fa"
-        inactive-color "#505050"
+        active-color "#74c7ec"
+        inactive-color "#1e1e2e"
 
         urgent-color "#9b0000"
 
     }
 
     shadow {
-        on
+        // on
 
         softness 30
 
@@ -165,9 +165,25 @@ window-rule {
 
 window-rule {
   match app-id="waypaper" title="Waypaper"
+  match app-id="nm-connection-editor" title="Network Connections"
+  match app-id="org.pulseaudio.pavucontrol" title="Volume Control"
+  match app-id="blueman-manager" title="Bluetooth Devices"
   open-floating true
 }
 
+window-rule {
+    
+    match app-id="org.pulseaudio.pavucontrol" title="Volume Control"
+    default-column-width { fixed 600; }
+    default-window-height { fixed 600; }
+}
+
+window-rule {
+    
+    match app-id="blueman-manager" title="Bluetooth Devices"
+    default-column-width { fixed 600; }
+    default-window-height { fixed 600; }
+}
 /-window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
