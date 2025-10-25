@@ -131,7 +131,7 @@ overview {
 
 spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
-spawn-sh-at-startup "swayidle timeout 600 'swaylock -i ~/Pictures/wallpapers/wallhaven-1kxp9g.jpg' timeout 900 'niri msg action power-off-monitors' "
+spawn-sh-at-startup "swayidle timeout 600 'swaylock -i ~/Pictures/wallpapers/wallhaven-1kxp9g.jpg' timeout 900 'niri msg action power-off-monitors' timeout 960 'systemctl suspend'"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "mako"
 
@@ -186,6 +186,8 @@ window-rule {
     default-column-width { fixed 1060; }
     default-window-height { fixed 750; }
 }
+
+
 /-window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
@@ -201,11 +203,13 @@ window-rule {
     clip-to-geometry true
 }
 
+// Put swaybg inside the overview backdrop.
+
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+Shift+W { spawn "waypaper"; }
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
