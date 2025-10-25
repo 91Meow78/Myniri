@@ -165,6 +165,7 @@ window-rule {
 
 window-rule {
   match app-id="waypaper" title="Waypaper"
+  match app-id="wechat" title="Settings"
   match app-id="io.missioncenter.MissionCenter" title="Mission Center"
   match app-id="nm-connection-editor" title="Network Connections"
   match app-id="org.pulseaudio.pavucontrol" title="Volume Control"
@@ -366,4 +367,6 @@ binds {
     Ctrl+Alt+Delete { quit; }
 
     Mod+Shift+P { power-off-monitors; }
+    Mod+Shift+S { spawn-sh "pkill wshowkeys"; }
+    Mod+S { spawn-sh "wshowkeys -a bottom -b '#18182570' -f '#ffffff' -F 'UbuntuMonoNerdFont 30'"; }
 }
