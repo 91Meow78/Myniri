@@ -117,6 +117,8 @@ environment {
     GTK_IM_MODULE null
     SDL_IM_MODULE null
     GLFW_IM_MODULE null
+
+    TERMINAL "kitty"
 }
 
 cursor {
@@ -170,6 +172,7 @@ window-rule {
   match app-id="nm-connection-editor" title="Network Connections"
   match app-id="org.pulseaudio.pavucontrol" title="Volume Control"
   match app-id="blueman-manager" title="Bluetooth Devices"
+
   open-floating true
 }
 
@@ -213,6 +216,7 @@ binds {
     Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+Shift+W { spawn "waypaper"; }
+    Mod+E { spawn "thunar"; }
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
     F3 allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
